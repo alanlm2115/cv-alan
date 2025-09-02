@@ -1,54 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Currículum de Alan</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Currículum Alan Lopez Mejia | Ingeniería de Sistemas</title>
+  <meta name="description" content="Currículum de Alan Lopez Mejia">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Skip link-->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Encabezado -->
   <header>
+    <img class="avatar-img" src="perfil.jpeg" alt="Foto de Alan Lopez Mejia" loading="lazy">
     <h1>Alan Lopez Mejia</h1>
     <p>Estudiante de Ingeniería de Sistemas</p>
-    <img class="avatar-img" src="perfil.jpeg" alt="Foto de perfil">
+    <nav>
+      <ul>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section>
-    <h2>Resumen</h2>
-    <p>
-      Soy estudiante de Ingeniería de Sistemas con interés en desarrollo web y
-      bases de datos. Me gusta crear soluciones simples y trabajar en equipo.
-    </p>
-  </section>
+  <!-- Contenido pagina-->
+  <main id="main-content">
+    
+    <article id="resumen">
+      <h2>Resumen</h2>
+      <p>
+        Soy estudiante de Ingeniería de Sistemas con interés en desarrollo web y bases de datos.
+        Me gusta aprender creando proyectos prácticos y trabajando en equipo.
+      </p>
+    </article>
 
-  <section>
-    <h2>Formación académica</h2>
-    <ul>
-      <li>Universidad Adventista Boliviana — Ingeniería de Sistemas (2025 — Actualidad)</li>
-      <li>Unidad Educativa Eliodoro Villazon — Bachiller (2017)</li>
-      <li>Instituto Tecnologico Sacaba - Tecnico Superior en Sistemas Informaticos (2020-2023)</li>
-    </ul>
-  </section>
+    <article id="formacion">
+      <h2>Formación Académica</h2>
+      <ul>
+        <li>Universidad Adventista Boliviana — Ingeniería de Sistemas (2023 — Actualidad)</li>
+        <li>Unidad Educativa Eliodoro Villazon — Bachiller (2017)</li>
+        <li>Instituto Tecnologico Sacaba - Tecnico Superior en Sistemas Informaticos ( 2020 - 2023)</li>
+      </ul>
+    </article>
 
-  <section>
-    <h2>Habilidades</h2>
-    <ul>
-      <li>HTML & CSS</li>
-      <li>JavaScript (básico)</li>
-      <li>MySQL</li>
-    </ul>
-  </section>
+    <article id="habilidades">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>HTML & CSS(basico)</li>
+        <li>JavaScript (basico)</li>
+        <li>MySQL</li>
+        <li>Trabajo en equipo</li>
+      </ul>
+    </article>
 
-  <section>
-    <h2>Proyecto reciente</h2>
-    <p>
-      Sistema web para Heladería Globos con Node.js, Express y MySQL.  
-      Implementé reportes y vistas responsivas.
-    </p>
-  </section>
+    <section id="proyectos">
+      <h2>Proyectos Recientes</h2>
+      <article>
+        <h3>Sistema web Heladería Globos</h3>
+        <p>
+          Implementación de un sistema web con Node.js, Express, EJS y MySQL.
+          Incluye reportes de ventas, gestión de pedidos, vistas responsivas y manejo de base de datos.
+        </p>
+      </article>
+    </section>
+
+    <aside id="contacto">
+      <h2>Contacto</h2>
+      <ul>
+        <li>Email: alan.mejia@uab.edu.bo</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/alanlm" target="_blank">linkedin.com/in/alanlm</a></li>
+         <li>GIT HUB: <a href="https://github.com/alanlm2115" target="_blank">github.com/in/alanlm</a></li>
+      </ul>
+
+      <!-- Formulario -->
+      <form>
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" placeholder="tuemail@dominio.com" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </aside>
+    
+  </main>
 
   <footer>
     <p>&copy; 2025 Alan Lopez Mejia</p>
   </footer>
+
+  <!-- JSON-LD Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alan Lopez Mejia",
+    "jobTitle": "Estudiante de Ingeniería de Sistemas",
+    "url": "https://github.com/alanlm2115/cv-alan",
+    "sameAs": [
+      "https://www.linkedin.com/in/alanlm"
+    ]
+  }
+  </script>
+
 </body>
 </html>
