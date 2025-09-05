@@ -39,7 +39,7 @@
   <!-- Contenido principal -->
   <main id="main-content" role="main">
 
-    <section id="resumen">
+    <section id="resumen" class="card">
       <h2>Resumen</h2>
       <p>
         Soy estudiante de Ingeniería de Sistemas con interés en desarrollo web y bases de datos.
@@ -47,7 +47,7 @@
       </p>
     </section>
 
-    <section id="formacion">
+    <section id="formacion" class="card">
       <h2>Formación Académica</h2>
       <ul>
         <li>Universidad Adventista Boliviana — Ingeniería de Sistemas (2023 — Actualidad)</li>
@@ -56,7 +56,7 @@
       </ul>
     </section>
 
-    <section id="habilidades">
+    <section id="habilidades" class="card">
       <h2>Habilidades</h2>
       <ul>
         <li>HTML & CSS (básico)</li>
@@ -66,9 +66,9 @@
       </ul>
     </section>
 
-    <section id="proyectos">
+    <section id="proyectos" class="card">
       <h2>Proyectos Recientes</h2>
-      <article>
+      <article class="card">
         <h3>Sistema web Heladería Globos</h3>
         <p>
           Implementación de un sistema web con Node.js, Express, EJS y MySQL.
@@ -77,7 +77,7 @@
       </article>
     </section>
 
-    <section id="contacto" role="complementary">
+    <section id="contacto" class="card" role="complementary">
       <h2>Contacto</h2>
       <ul>
         <li>Email: alan.mejia@uab.edu.bo</li>
@@ -89,7 +89,7 @@
         <label for="email">Correo:</label>
         <input type="email" id="email" name="email" placeholder="tuemail@dominio.com" required aria-required="true">
         <small id="form-ayuda">El correo es obligatorio y debe tener un formato válido.</small>
-        <button type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
+        <button type="submit" class="btn" aria-label="Enviar formulario de contacto">Enviar</button>
       </form>
     </section>
 
@@ -116,50 +116,50 @@
   }
   </script>
 
-  <!-- JS scroll y link activo -->
+  <!-- JS scroll, animaciones y botón volver arriba -->
   <script>
-  const sections = document.querySelectorAll("main section, main article");
-  const navLinks = document.querySelectorAll("header nav a");
+    const sections = document.querySelectorAll("main section, main article");
+    const navLinks = document.querySelectorAll("header nav a");
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 80;
-      if(scrollY >= sectionTop) current = section.getAttribute("id");
-    });
+    // Scroll y nav activo
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if(scrollY >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if(link.getAttribute("href") === "#" + current){
+          link.classList.add("active");
+        }
+      });
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if(link.getAttribute("href") === "#" + current){
-        link.classList.add("active");
+      // Botón volver arriba
+      const backToTop = document.getElementById("back-to-top");
+      if(window.scrollY > 300){
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
       }
     });
 
-    // Botón volver arriba
+    // Scroll suave al hacer click en botón volver arriba
     const backToTop = document.getElementById("back-to-top");
-    if(window.scrollY > 300){
-      backToTop.style.display = "block";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
-
-  // Scroll suave para volver arriba
-  const backToTop = document.getElementById("back-to-top");
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({top:0, behavior:"smooth"});
-  });
-
-  // Animación secciones al hacer scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.animation = "fadeInSlide 0.8s forwards";
-        observer.unobserve(entry.target);
-      }
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({top:0, behavior:"smooth"});
     });
-  });
-  document.querySelectorAll("section, article").forEach(el => observer.observe(el));
+
+    // Animación secciones al entrar en viewport
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+    document.querySelectorAll("section, article").forEach(el => observer.observe(el));
   </script>
 
 </body>
