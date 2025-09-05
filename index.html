@@ -95,6 +95,9 @@
 
   </main>
 
+  <!-- Botón Volver Arriba -->
+  <button id="back-to-top" aria-label="Volver al inicio">↑</button>
+
   <footer role="contentinfo">
     <p>&copy; 2025 Alan Lopez Mejia</p>
   </footer>
@@ -131,6 +134,20 @@
         link.classList.add("active");
       }
     });
+
+    // Botón volver arriba
+    const backToTop = document.getElementById("back-to-top");
+    if(window.scrollY > 300){
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // Scroll suave para volver arriba
+  const backToTop = document.getElementById("back-to-top");
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({top:0, behavior:"smooth"});
   });
 
   // Animación secciones al hacer scroll
